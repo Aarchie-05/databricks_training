@@ -1,0 +1,573 @@
+{
+  "datasets" : [ {
+    "name" : "b0b4f22f",
+    "displayName" : "Cleaned Sales Data Analysis",
+    "query" : "select * from jpmc.aarchie_silver.sales_cleaned;"
+  }, {
+    "name" : "590083cf",
+    "displayName" : "sales_cleaned",
+    "query" : "SELECT * FROM jpmc.aarchie_silver.sales_cleaned"
+  }, {
+    "name" : "b9cb80e6",
+    "displayName" : "customers",
+    "query" : "SELECT * FROM jpmc.aarchie_bronze.customers"
+  }, {
+    "name" : "3e14d188",
+    "displayName" : "customer_sql_test",
+    "query" : "SELECT * FROM jpmc.aarchie.customer_sql_test;",
+    "catalog" : "jpmc",
+    "schema" : "aarchie"
+  } ],
+  "pages" : [ {
+    "name" : "61e9c395",
+    "displayName" : "Sales Dashboard",
+    "layout" : [ {
+      "widget" : {
+        "name" : "344ff61b",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "b0b4f22f",
+            "fields" : [ {
+              "name" : "sum(total_amount)",
+              "expression" : "SUM(`total_amount`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 2,
+          "widgetType" : "counter",
+          "encodings" : {
+            "value" : {
+              "fieldName" : "sum(total_amount)",
+              "displayName" : "Sum of total_amount"
+            }
+          },
+          "frame" : {
+            "title" : "Total Sales Amount",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 0,
+        "y" : 0,
+        "width" : 2,
+        "height" : 4
+      }
+    }, {
+      "widget" : {
+        "name" : "169739bc",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "b0b4f22f",
+            "fields" : [ {
+              "name" : "discount_amount",
+              "expression" : "`discount_amount`"
+            } ],
+            "disaggregated" : true
+          }
+        } ],
+        "spec" : {
+          "version" : 1,
+          "widgetType" : "table",
+          "encodings" : {
+            "columns" : [ {
+              "fieldName" : "discount_amount",
+              "title" : "discount_amount",
+              "booleanValues" : [ "false", "true" ],
+              "type" : "float",
+              "displayAs" : "number",
+              "visible" : true,
+              "displayName" : "discount_amount"
+            } ]
+          },
+          "invisibleColumns" : [ {
+            "numberFormat" : "0",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "order_id",
+            "type" : "integer",
+            "displayAs" : "number",
+            "order" : 100000,
+            "title" : "order_id",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "numberFormat" : "0",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "customer_id",
+            "type" : "integer",
+            "displayAs" : "number",
+            "order" : 100001,
+            "title" : "customer_id",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "numberFormat" : "0",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "transaction_id",
+            "type" : "integer",
+            "displayAs" : "number",
+            "order" : 100002,
+            "title" : "transaction_id",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "numberFormat" : "0",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "product_id",
+            "type" : "integer",
+            "displayAs" : "number",
+            "order" : 100003,
+            "title" : "product_id",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "numberFormat" : "0",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "quantity",
+            "type" : "integer",
+            "displayAs" : "number",
+            "order" : 100004,
+            "title" : "quantity",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "numberFormat" : "0.00",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "total_amount",
+            "type" : "float",
+            "displayAs" : "number",
+            "order" : 100006,
+            "title" : "total_amount",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          }, {
+            "dateTimeFormat" : "YYYY-MM-DD",
+            "booleanValues" : [ "false", "true" ],
+            "imageUrlTemplate" : "{{ @ }}",
+            "imageTitleTemplate" : "{{ @ }}",
+            "imageWidth" : "",
+            "imageHeight" : "",
+            "linkUrlTemplate" : "{{ @ }}",
+            "linkTextTemplate" : "{{ @ }}",
+            "linkTitleTemplate" : "{{ @ }}",
+            "linkOpenInNewTab" : true,
+            "name" : "order_date",
+            "type" : "date",
+            "displayAs" : "datetime",
+            "order" : 100007,
+            "title" : "order_date",
+            "allowSearch" : false,
+            "alignContent" : "right",
+            "allowHTML" : false,
+            "highlightLinks" : false,
+            "useMonospaceFont" : false,
+            "preserveWhitespace" : false
+          } ],
+          "allowHTMLByDefault" : false,
+          "itemsPerPage" : 25,
+          "paginationSize" : "default",
+          "condensed" : true,
+          "withRowNumber" : false,
+          "frame" : {
+            "title" : "Discount Amount Distribution",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 2,
+        "y" : 0,
+        "width" : 4,
+        "height" : 4
+      }
+    }, {
+      "widget" : {
+        "name" : "65a1745b",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "590083cf",
+            "fields" : [ {
+              "name" : "product_id",
+              "expression" : "`product_id`"
+            }, {
+              "name" : "sum(total_amount)",
+              "expression" : "SUM(`total_amount`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 3,
+          "widgetType" : "bar",
+          "encodings" : {
+            "x" : {
+              "fieldName" : "product_id",
+              "scale" : {
+                "type" : "categorical",
+                "sort" : {
+                  "by" : "y-reversed"
+                }
+              },
+              "displayName" : "product_id"
+            },
+            "y" : {
+              "fieldName" : "sum(total_amount)",
+              "scale" : {
+                "type" : "quantitative"
+              },
+              "displayName" : "Sum of total_amount"
+            }
+          },
+          "frame" : {
+            "title" : "Sales by Product",
+            "showTitle" : true
+          },
+          "mark" : {
+            "colors" : [ {
+              "themeColorType" : "visualizationColors",
+              "position" : 2
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 2
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 3
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 4
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 5
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 6
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 7
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 8
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 9
+            }, {
+              "themeColorType" : "visualizationColors",
+              "position" : 10
+            } ]
+          }
+        }
+      },
+      "position" : {
+        "x" : 0,
+        "y" : 4,
+        "width" : 3,
+        "height" : 4
+      }
+    }, {
+      "widget" : {
+        "name" : "ec090183",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "590083cf",
+            "fields" : [ {
+              "name" : "monthly(order_date)",
+              "expression" : "DATE_TRUNC(\"MONTH\", `order_date`)"
+            }, {
+              "name" : "sum(total_amount)",
+              "expression" : "SUM(`total_amount`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 3,
+          "widgetType" : "line",
+          "encodings" : {
+            "x" : {
+              "fieldName" : "monthly(order_date)",
+              "scale" : {
+                "type" : "temporal"
+              },
+              "displayName" : "order_date"
+            },
+            "y" : {
+              "fieldName" : "sum(total_amount)",
+              "scale" : {
+                "type" : "quantitative"
+              },
+              "displayName" : "Sum of total_amount"
+            }
+          },
+          "frame" : {
+            "title" : "Sales Over Time",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 3,
+        "y" : 4,
+        "width" : 3,
+        "height" : 6
+      }
+    }, {
+      "widget" : {
+        "name" : "838076d5",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "b0b4f22f",
+            "disaggregated" : true
+          }
+        } ],
+        "spec" : {
+          "version" : 3,
+          "widgetType" : "bar",
+          "encodings" : { }
+        }
+      },
+      "position" : {
+        "x" : 0,
+        "y" : 10,
+        "width" : 3,
+        "height" : 6
+      }
+    }, {
+      "widget" : {
+        "name" : "47db027a",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "b9cb80e6",
+            "fields" : [ {
+              "name" : "count(customer_id)",
+              "expression" : "COUNT(`customer_id`)"
+            }, {
+              "name" : "customer_state",
+              "expression" : "`customer_state`"
+            }, {
+              "name" : "count(customer_state)",
+              "expression" : "COUNT(`customer_state`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 3,
+          "widgetType" : "pie",
+          "encodings" : {
+            "angle" : {
+              "fieldName" : "count(customer_id)",
+              "scale" : {
+                "type" : "quantitative"
+              },
+              "displayName" : "Count of customer_id"
+            },
+            "color" : {
+              "fieldName" : "customer_state",
+              "scale" : {
+                "type" : "categorical"
+              },
+              "displayName" : "customer_state"
+            },
+            "extra" : [ {
+              "fieldName" : "count(customer_state)",
+              "displayName" : "Count of customer_state"
+            } ]
+          },
+          "frame" : {
+            "title" : "Customer Distribution by State",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 0,
+        "y" : 8,
+        "width" : 3,
+        "height" : 6
+      }
+    }, {
+      "widget" : {
+        "name" : "5c59a43b",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "b9cb80e6",
+            "fields" : [ {
+              "name" : "count(customer_id)",
+              "expression" : "COUNT(`customer_id`)"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 2,
+          "widgetType" : "counter",
+          "encodings" : {
+            "value" : {
+              "fieldName" : "count(customer_id)",
+              "displayName" : "Count of customer_id"
+            }
+          },
+          "frame" : {
+            "title" : "Customer Count",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 3,
+        "y" : 10,
+        "width" : 1,
+        "height" : 4
+      }
+    }, {
+      "widget" : {
+        "name" : "8127d97e",
+        "queries" : [ {
+          "name" : "main_query",
+          "query" : {
+            "datasetName" : "3e14d188",
+            "fields" : [ {
+              "name" : "count(cust_id)",
+              "expression" : "COUNT(`cust_id`)"
+            }, {
+              "name" : "gender",
+              "expression" : "`gender`"
+            } ],
+            "disaggregated" : false
+          }
+        } ],
+        "spec" : {
+          "version" : 3,
+          "widgetType" : "pie",
+          "encodings" : {
+            "angle" : {
+              "fieldName" : "count(cust_id)",
+              "scale" : {
+                "type" : "quantitative"
+              },
+              "displayName" : "Count of cust_id"
+            },
+            "color" : {
+              "fieldName" : "gender",
+              "scale" : {
+                "type" : "categorical",
+                "mappings" : [ {
+                  "value" : "Female",
+                  "color" : {
+                    "themeColorType" : "visualizationColors",
+                    "position" : 8
+                  }
+                }, {
+                  "value" : "Male",
+                  "color" : {
+                    "themeColorType" : "visualizationColors",
+                    "position" : 5
+                  }
+                } ]
+              },
+              "displayName" : "gender"
+            },
+            "label" : {
+              "show" : true
+            }
+          },
+          "frame" : {
+            "title" : "Gender Proportion",
+            "showTitle" : true
+          }
+        }
+      },
+      "position" : {
+        "x" : 4,
+        "y" : 10,
+        "width" : 2,
+        "height" : 4
+      }
+    } ],
+    "pageType" : "PAGE_TYPE_CANVAS"
+  } ],
+  "uiSettings" : {
+    "theme" : { }
+  }
+}
